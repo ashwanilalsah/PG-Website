@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | JAI PG</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Animate.css & Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f8fb;
+      color: #333;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand h3 {
+      margin: 0;
+      color: #28a745;
+      font-weight: 700;
+    }
+
+    .btn-add-pg {
+      background-color: #28a745;
+      color: white;
+      font-weight: 500;
+      border-radius: 5px;
+    }
+
+    .btn-add-pg:hover {
+      background-color: #218838;
+      color: white;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Services Header */
+    .services-header {
+      background-color: #00b894;
+      padding: 40px 15px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .services-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .services-header p {
+      font-size: 1.1rem;
+    }
+
+    /* Services Grid */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 60px 50px;
+      background: #fff;
+    }
+
+    .service-card {
+      background: #E8F9FF;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      color: #00b894;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #2d3436;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: #636e72;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    @media (max-width: 768px) {
+      .services-header h1 {
+        font-size: 2.2rem;
+      }
+      .services-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <!-- Header / Navbar -->
+<!-- Header / Navbar -->
+<nav class="navbar navbar-expand-lg bg-white sticky-top" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+  <div class="container-fluid px-4 py-2 d-flex align-items-center justify-content-between">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="supertech/Jai pg logo.jpg" alt="Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+      <span style="font-weight: 800; font-size: 24px; color: #00C37A;">JAI PG</span>
+    </a>
+
+    <!-- Toggler with no border/shadow -->
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Menu -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-lg-auto mt-3 mt-lg-0 gap-lg-3 fw-semibold">
+        <li class="nav-item"><a class="nav-link text-dark" href="index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="about.html">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="services.html">SERVICES</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="Pg.html">PG LOCATION</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="contact.html">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Services Header Section -->
+  <header class="services-header animate__animated animate__fadeInDown">
+    <h1>Our Premium PG Services</h1>
+    <p>Experience comfort, security, and convenience like never before.</p>
+  </header>
+
+  <!-- Services Grid -->
+  <section class="services-container">
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-broom"></i>
+      <h3>Daily Cleanliness</h3>
+      <p>We ensure top-notch hygiene with daily housekeeping, disinfecting surfaces, and fresh bed linens regularly.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-shield-alt"></i>
+      <h3>24x7 Security</h3>
+      <p>Our PGs are secured with CCTV surveillance and professional security personnel ensuring your safety at all hours.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-wifi"></i>
+      <h3>High-Speed WiFi</h3>
+      <p>Stay connected with fast, unlimited internet ideal for online classes, remote work, and entertainment.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-utensils"></i>
+      <h3>Nutritious Food</h3>
+      <p>We provide hygienic, homemade-style meals with vegetarian and non-vegetarian options to suit every taste.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-tint"></i>
+      <h3>RO Drinking Water</h3>
+      <p>Pure and safe RO filtered drinking water available 24x7 for a healthy lifestyle.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-bed"></i>
+      <h3>Comfortable Rooms</h3>
+      <p>Spacious, ventilated, and fully furnished rooms with cozy beds, study tables, and storage solutions.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-map-marker-alt"></i>
+      <h3>Near College</h3>
+      <p>Strategically located PGs just a few minutes' walk from your college or university for your convenience.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+       <i class="fas fa-soap"></i>
+      <h3>Washing Machine</h3>
+      <p>We provide both manual and automatic washing machines to ensure hassle-free laundry every day..</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-dumbbell"></i>
+      <h3>Fitness & Recreation</h3>
+      <p>Stay active with access to indoor games, workout space, and recreational zones to relax and socialize.</p>
+    </div>
+
+    <div class="service-card animate__animated animate__zoomIn">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Power Backup</h3>
+      <p>No interruptions! All our PGs come with reliable power backup to ensure uninterrupted living.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: #0E2E50 !important; color: white !important; text-align: center; padding: 20px 10px; font-size: 14px; font-weight: 500;">
+  <p>© 2025 JAI PG | Designed with care and passion to make your stay memorable.</p>
+</footer>
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  const links = document.querySelectorAll('.navbar-nav .nav-link');
+  const currentPage = location.pathname.split("/").pop();
+
+  links.forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage || (linkPage === 'index.html' && currentPage === '')) {
+      link.classList.add('text-success');
+    } else {
+      link.classList.remove('text-success');
+    }
+  });
+</script>
+</body>
+</html>

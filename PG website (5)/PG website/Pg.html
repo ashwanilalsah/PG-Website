@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JAI PG | Locations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f6f8;
+      color: #222;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo span {
+      font-size: 28px;
+      font-weight: 800;
+      color: #00B98E;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #00B98E;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      background: none;
+      border: none;
+      color: #00B98E;
+      cursor: pointer;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+      background: linear-gradient(135deg, #00b894, #55efc4);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .location-section {
+      margin-bottom: 60px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .location-section h2 {
+      color: #00b894;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .flexbox {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .video {
+      flex: 1;
+      min-width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .images {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .images img {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      cursor: pointer;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .images img:hover {
+      transform: scale(1.05);
+    }
+
+    .about {
+      background: #f9f9f9;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+    }
+
+    .modal:target {
+      display: flex;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .features {
+      text-align: center;
+      background: #fff;
+      padding: 50px 20px;
+      margin-top: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .features h3 {
+      font-size: 26px;
+      color: #00b894;
+      margin-bottom: 25px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+    }
+
+    .features-grid div {
+      background: #E8F9FF;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .features-grid div h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .features-grid div p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .video {
+        height: 220px;
+      }
+
+      .images img {
+        height: 130px;
+      }
+
+      .features-grid {
+        gap: 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        z-index: 998;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <img src="supertech/Jai pg logo.jpg" alt="JAI PG Logo" />
+      <span>JAI PG</span>
+    </a>
+    <nav>
+      <ul id="navLinks">
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="Pg.html">PG LOCATION</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div class="hero" data-aos="fade-down">
+    <h2>Comfort. Safety. Affordability.</h2>
+    <p>Welcome to JAI PG – your second home near Dankaur & Supertech. Fully furnished rooms, daily cleaning, WiFi, 24/7 security, and more – all at your service.</p>
+  </div>
+
+  <div class="container">
+    <!-- Features Section -->
+    <section class="features" data-aos="fade-up">
+      <h3>Why Choose JAI PG?</h3>
+      <div class="features-grid">
+        <div><h4>24/7 Security</h4><p>Feel safe with round-the-clock surveillance and secure entry.</p></div>
+        <div><h4>High-Speed WiFi</h4><p>Stay connected with unlimited fast internet access.</p></div>
+        <div><h4>Clean Rooms</h4><p>Daily housekeeping to keep your space fresh and tidy.</p></div>
+        <div><h4>Nearby Transit</h4><p>Easy access to metro, railway stations, and bus stops.</p></div>
+      </div>
+    </section>
+
+    <!-- Dankaur PG Section -->
+    <section class="location-section" data-aos="fade-up">
+      <h2>Dankaur PG</h2>
+      <div class="flexbox">
+        <div class="video"><video controls controlsList="nodownload"><source src="dankur/dankurvideo.mp4" type="video/mp4" /></video></div>
+        <div class="images">
+          <img src="dankur/dankur1.jpg" onclick="openModal(this)">
+          <img src="img/1 room.jpg" onclick="openModal(this)">
+          <img src="dankur/dankur3.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.28_73d71b68.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 11.37.52_1e45ac67.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.28_82bebcd1.jpg" onclick="openModal(this)">
+        </div>
+      </div>
+      <div class="about">
+        <h3>About Dankaur PG</h3>
+        <p>Located near Dankaur railway station, this PG offers fully furnished rooms with 24/7 security, high-speed WiFi, power backup, and daily housekeeping. Close to markets and public transport.</p>
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14014.622294798514!2d77.5511627!3d28.3559952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMjjCsDIxJzIxLjYiTiA3N8KwMzMnMDQuMiJF!5e0!3m2!1sen!2sin!4v1718355623475!5m2!1sen!2sin"></iframe>
+    </section>
+
+    <!-- Supertech PG Section -->
+    <section class="location-section" data-aos="fade-up">
+      <h2>Supertech Upcountry</h2>
+      <div class="flexbox">
+        <div class="video"><video controls controlsList="nodownload"><source src="supertech/WhatsApp Video 2025-06-13 at 11.37.51_9972db43.mp4" type="video/mp4" /></video></div>
+        <div class="images">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.27_4dc37b36.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.28_0c1467d6.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.28_3d564c90.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.28_73d71b68.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.28_a9f2706b.jpg" onclick="openModal(this)">
+          <img src="supertech/WhatsApp Image 2025-06-13 at 09.40.28_bfc8ceb0.jpg" onclick="openModal(this)">
+        </div>
+      </div>
+      <div class="about">
+        <h3>About Supertech PG</h3>
+        <p>Situated in Supertech Upcountry walking distance from Galgotia and Noida International University, this PG provides modern facilities, including smart locks, WiFi, laundry, gym, and delicious meals. Ideal for working professionals and students alike.</p>
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d14013.366994144565!2d77.4818506!3d28.4744006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1sGreater%20Noida%2C%20Uttar%20Pradesh!2sGreater%20Noida!3m2!1d28.4743879!2d77.5039904!4m5!1sJAI%20PG%2C%20Supertech%20Upcountry%2C%20Sector%2017A%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20203201!2sJAI%20PG%2C%20Supertech%20Upcountry%2C%20Sector%2017A%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20203201!3m2!1d28.3699763!2d77.5483248!5e0!3m2!1sen!2sin!4v1718352549464!5m2!1sen!2sin"></iframe>
+    </section>
+  </div>
+
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img id="modalImage" src="" />
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function openModal(img) {
+      document.getElementById('modalImage').src = img.src;
+      document.getElementById('imgModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('imgModal').style.display = 'none';
+    }
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
